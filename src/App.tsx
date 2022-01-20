@@ -2,12 +2,10 @@ import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { useQuery } from "react-query";
 import { Route, Routes as RoutesReact } from "react-router-dom";
-import { Main } from "./components/Main";
+import { Home } from "./pages/Home";
 import { Cart } from "./pages/Cart";
 import { useState } from "react";
-
-const proxy = "https://cors-anywhere.herokuapp.com/";
-const url = "https://www.fruityvice.com/api/fruit/all";
+import { Alert, AlertTitle } from "@mui/material";
 
 export type ProductsType = {
   id: number;
@@ -15,15 +13,22 @@ export type ProductsType = {
   family: string;
   nutritions: {
     calories: number;
+    carbohydrates?: number;
+    fat?: number;
+    protein?: number;
+    sugar?: number;
   };
   amount: number;
 };
+
+const proxy = "https://cors-anywhere.herokuapp.com/";
+const url = "https://www.fruityvice.com/api/fruit/all";
 
 const getProducts = async (): Promise<ProductsType[]> =>
   await (await fetch(proxy + url)).json();
 
 function App() {
-  const [cartItems, setCartItems] = useState([] as ProductsType[]);
+  const [cartItems, setCartItems] = useState<ProductsType[]>([]);
 
   const { data, isLoading, error } = useQuery<ProductsType[]>(
     "products",
@@ -32,6 +37,15 @@ function App() {
       staleTime: 7200000, // 2 horas
     }
   );
+
+  if (error) {
+    return (
+      <Alert severity="error">
+        <AlertTitle>Error</AlertTitle>
+        This is an error alert — <strong>check it out!</strong>
+      </Alert>
+    );
+  }
 
   console.log(data);
 
@@ -67,16 +81,16 @@ function App() {
     );
   }
 
-  /*   <Badge badgeContent={getTotalItems(cartItems)}>
-    <AddShoppingCartIcon />
-</Badge> */
+  function handleRemoveAllItems() {
+    setCartItems([]);
+  }
 
   return (
     <BrowserRouter>
       <RoutesReact>
         <Route
           element={
-            <Main
+            <Home
               data={data}
               isLoading={isLoading}
               handleAddToCart={handleAddToCart}
@@ -92,6 +106,7 @@ function App() {
               cartItems={cartItems}
               addToCart={handleAddToCart}
               removeFromCart={handleRemoveFromCart}
+              handleRemoveAllItems={handleRemoveAllItems}
             />
           }
         />

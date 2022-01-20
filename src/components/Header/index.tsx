@@ -1,10 +1,9 @@
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { ProductsType } from "../../App";
 
 type PropsHeader = {
-  total?: any;
+  total?: number;
 };
 
 export function Header({ total }: PropsHeader) {

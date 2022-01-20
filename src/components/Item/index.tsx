@@ -6,8 +6,8 @@ import {
   Typography,
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { useStyles } from "../components/Main";
-import { ProductsType } from "../App";
+import { useStyles } from "../../pages/Home";
+import { ProductsType } from "../../App";
 import { useState } from "react";
 
 type PropsType = {
@@ -18,6 +18,7 @@ type PropsType = {
 export function Item({ item, handleAddToCart }: PropsType) {
   const classes = useStyles();
   const [count, setCount] = useState(0);
+
   return (
     <Card sx={{ width: 260, height: 240 }}>
       <CardContent>
