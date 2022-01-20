@@ -5,9 +5,8 @@
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-executando-a-aplicação">Executando a aplicação</a>
+  <a href="#-executando-aplicação">Executando aplicação</a>
 </p>
 
 ## 🚀 Tecnologias
@@ -38,7 +37,7 @@ Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navega
 Obs.: Caso enfrente problemas com o cors ao tentar conectar com a api, basta clicar [aqui](https://cors-anywhere.herokuapp.com/corsdemo) e solicitar o acesso temporário.
 
 
-## 🎬 Executando a aplicação
+## 🎬 Executando aplicação
 
 <p align="center">
   <img alt="video" src="./github/assets/hortifruti.gif">
