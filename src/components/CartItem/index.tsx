@@ -11,7 +11,7 @@ export function CartIem({ item, addToCart, removeFromCart }: PropsCartItem) {
   return (
     <Box
       sx={{
-        width: "40%",
+        width: "320px",
         background: "#fff",
         display: "flex",
         flexDirection: "column",

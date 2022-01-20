@@ -2,7 +2,7 @@ import { Header } from "../../components/Header";
 import { CartIem } from "../../components/CartItem";
 
 import { ProductsType } from "../../App";
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Container, Grid, Typography } from "@mui/material";
 
 type PropsCart = {
   cartItems: ProductsType[];
@@ -23,6 +23,7 @@ export function Cart({
   return (
     <>
       <Header total={totalProducts(cartItems)} />
+
       <Container>
         <Typography variant="h3">Cart</Typography>
         <Typography variant="h6">
@@ -40,25 +41,22 @@ export function Cart({
         >
           Remove All
         </Button>
-        <Container
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+        <Grid container spacing={3} justifyContent="center">
           {cartItems.length === 0 ? (
-            <Typography variant="h6">No items in cart</Typography>
+            <Typography mt={4} variant="h6">
+              No items in cart
+            </Typography>
           ) : null}
           {cartItems.map((item) => (
-            <CartIem
-              key={item.id}
-              item={item}
-              addToCart={addToCart}
-              removeFromCart={removeFromCart}
-            />
+            <Grid item xs key={item.id}>
+              <CartIem
+                item={item}
+                addToCart={addToCart}
+                removeFromCart={removeFromCart}
+              />
+            </Grid>
           ))}
-        </Container>
+        </Grid>
       </Container>
     </>
   );

@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/styles";
 import { Item } from "../../components/Item";
 import { Header } from "../../components/Header";
-import { Box, LinearProgress } from "@mui/material";
+import { Grid, LinearProgress } from "@mui/material";
 import { ProductsType } from "../../App";
 
 export type ProductsType2 = {
@@ -37,19 +37,11 @@ export function Home({ data, isLoading, handleAddToCart, total }: PropsHome) {
       <Header total={total} />
 
       <div className={classes.div}>
-        <Box
-          sx={{
-            mt: 2,
-            display: "grid",
-            gridTemplate: "1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr",
-            rowGap: "1.2rem",
-            columnGap: "1.875rem",
-          }}
-        >
+        <Grid container spacing={4.5} mt={0.5} justifyContent="center">
           {data?.map((item: ProductsType) => (
             <Item key={item.id} item={item} handleAddToCart={handleAddToCart} />
           ))}
-        </Box>
+        </Grid>
       </div>
     </>
   );
