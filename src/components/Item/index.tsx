@@ -1,3 +1,7 @@
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useStyles } from "../../pages/Home";
+import { ProductsType } from "../../App";
+import { useState } from "react";
 import {
   Button,
   Card,
@@ -5,10 +9,6 @@ import {
   CardContent,
   Typography,
 } from "@mui/material";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { useStyles } from "../../pages/Home";
-import { ProductsType } from "../../App";
-import { useState } from "react";
 
 type PropsType = {
   item: ProductsType;
@@ -20,7 +20,7 @@ export function Item({ item, handleAddToCart }: PropsType) {
   const [count, setCount] = useState(0);
 
   return (
-    <Card sx={{ width: 260, height: 240 }}>
+    <Card sx={{ width: 260, height: 220 }}>
       <CardContent>
         <Typography variant="h5" component="div" textAlign={"center"}>
           {item.name}

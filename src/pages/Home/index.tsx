@@ -20,14 +20,14 @@ export const useStyles = makeStyles({
   },
 });
 
-type PropsMain = {
+type PropsHome = {
   isLoading: boolean;
-  data: any;
+  data: ProductsType[] | undefined;
   handleAddToCart: (clickedItem: ProductsType) => void;
   total?: number;
 };
 
-export function Home({ data, isLoading, handleAddToCart, total }: PropsMain) {
+export function Home({ data, isLoading, handleAddToCart, total }: PropsHome) {
   const classes = useStyles();
 
   if (isLoading) return <LinearProgress />;

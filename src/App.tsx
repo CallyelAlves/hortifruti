@@ -47,8 +47,6 @@ function App() {
     );
   }
 
-  console.log(data);
-
   function getTotalItems(items: ProductsType[]) {
     return items.reduce((acc: number, items) => acc + items.amount, 0);
   }
@@ -81,7 +79,7 @@ function App() {
     );
   }
 
-  function handleRemoveAllItems() {
+  function handleRemoveAllItemsCart() {
     setCartItems([]);
   }
 
@@ -106,7 +104,7 @@ function App() {
               cartItems={cartItems}
               addToCart={handleAddToCart}
               removeFromCart={handleRemoveFromCart}
-              handleRemoveAllItems={handleRemoveAllItems}
+              handleRemoveAllItemsCart={handleRemoveAllItemsCart}
             />
           }
         />

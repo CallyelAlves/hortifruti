@@ -8,14 +8,14 @@ type PropsCart = {
   cartItems: ProductsType[];
   addToCart: (clickedItem: ProductsType) => void;
   removeFromCart: (id: number) => void;
-  handleRemoveAllItems: () => void;
+  handleRemoveAllItemsCart: () => void;
 };
 
 export function Cart({
   cartItems,
   addToCart,
   removeFromCart,
-  handleRemoveAllItems,
+  handleRemoveAllItemsCart,
 }: PropsCart) {
   const totalProducts = (items: ProductsType[]) =>
     items.reduce((acc, item) => acc + item.amount, 0);
@@ -36,7 +36,7 @@ export function Cart({
             background: "#4E9F3D",
             ":hover": { color: "#4E9F3D", background: "#fff" },
           }}
-          onClick={handleRemoveAllItems}
+          onClick={handleRemoveAllItemsCart}
         >
           Remove All
         </Button>
